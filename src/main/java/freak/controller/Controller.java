@@ -41,6 +41,11 @@ public class Controller {
         if (!"freak".equals(userName)) {
             result.setCode(48);
             Map map = new HashMap();
+            map.put("userName", "");
+            map.put("pwd", "");
+            map.put("abc", "");
+            map.put("token", "");
+            map.put("lversion", "");
             result.setData(map);
             result.setMsg("用户不存在");
             return result;
@@ -53,7 +58,7 @@ public class Controller {
             result.setCode(200);
             result.setMsg("成功");
             Map map = new HashMap();
-            map.put("userName", userName);
+            map.put("userName", "ahjksfbjkab");
             map.put("pwd", pwd);
             map.put("abc", "");
             map.put("token", token);
@@ -212,6 +217,72 @@ public class Controller {
         result.setCode(200);
         result.setData(map);
         result.setMsg("上传成功");
+        return result;
+    }
+
+    @PostMapping("/list")
+    public Result getList() {
+        Result result = new Result();
+        result.setCode(200);
+        result.setMsg("成功");
+
+        Map listMap = new HashMap();
+        listMap.put("username", "username1");
+        listMap.put("password", "password1");
+        Map listMap1 = new HashMap();
+        listMap1.put("username", "username2");
+        listMap1.put("password", "password2");
+        Map listMap2 = new HashMap();
+        listMap2.put("username", "username3");
+        listMap2.put("password", "password3");
+        Map map = new HashMap();
+        map.put("username", "username4");
+        map.put("password", "password4");
+        List<Map> list = new ArrayList<Map>();
+        list.add(listMap);
+        list.add(listMap1);
+        list.add(listMap2);
+        list.add(map);
+
+        result.setData(list);
+        return result;
+    }
+
+    @PostMapping("/dialogMessage")
+    public Result getDialogMessage() {
+        Result result = new Result();
+        result.setCode(200);
+        result.setMsg("成功");
+        Map map = new HashMap();
+        map.put("title", "黄金三剑客防寒");
+        map.put("context", "碧海金沙不符合就不会加班费好久不见还是大巴");
+        map.put("cancel", "取消");
+        map.put("commit", "前往");
+        result.setData(map);
+        return result;
+    }
+
+    @PostMapping("/moreDataBinding")
+    public Result getMoreDataBinding() {
+        Result result = new Result();
+        result.setCode(200);
+        result.setMsg("成功");
+        Map map = new HashMap();
+        map.put("title", "黄金三剑客防寒");
+        map.put("context", "碧海金沙不符合就不会加班费好久不见还是大巴");
+        result.setData(map);
+        return result;
+    }
+
+    @PostMapping("/moreDataBinding1")
+    public Result getMoreDataBinding1() {
+        Result result = new Result();
+        result.setCode(200);
+        result.setMsg("成功");
+        Map map = new HashMap();
+        map.put("username", "还接口把数据库不能点复健科");
+        map.put("msg", "啥规划局发布会节哀顺变还记得碧海金沙");
+        result.setData(map);
         return result;
     }
 
